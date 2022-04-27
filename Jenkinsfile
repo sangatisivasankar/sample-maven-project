@@ -5,14 +5,14 @@ pipeline {
 		steps{
 			echo 'Project compile stage'
 			
-			bat label: 'Compilation running', script: '''mvn compile'''
+			bat label: 'Compilation running', script: '''mvn -f sample-maven-project/pom.xml compile'''
 	       	}
 	}
 	
 	stage('Unit Test') {
 	   steps {
 			echo 'Project Testing stage'
-			bat label: 'Test running', script: '''mvn test'''
+			bat label: 'Test running', script: '''mvn -f sample-maven-project/pom.xml test'''
 	       
        		}
    	}
@@ -34,7 +34,7 @@ pipeline {
 	stage('Maven Package'){
 		steps{
 			echo 'Project packaging stage'
-			bat label: 'Project packaging', script: '''mvn package'''
+			bat label: 'Project packaging', script: '''mvn -f sample-maven-project/pom.xml package'''
 		}
 	} 		
     
